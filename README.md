@@ -22,9 +22,11 @@ Text preprocessing was carried out by using lower case, removing punctuation and
 - What is the association between content and category?
 - Which algorithms can provide better accuracy and effect in the multi-category news classification task？
 
+## Key Findings
+The results show that support vector machines (SVM) perform better than K-nearest neighbor (KNN) and naive Bayes classifiers on all key evaluation measures, with precision of 0.734, recall of 0.588, and an f-value of 0.632.
+
 
 ## Rcode and comment
-
 ### Exploratory analysis with text mining
 
 ```r
