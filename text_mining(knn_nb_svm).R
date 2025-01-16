@@ -1,4 +1,4 @@
-##predictive modelling
+##Predictive modelling
 #################################################################################
 install.packages('tm')
 install.packages('SnowballC')
@@ -56,14 +56,13 @@ news_train_labels <- newsdata$category_level_1[trainIndex]
 news_test_labels <- newsdata$category_level_1[-trainIndex]
 
 
-
-#train model
+#Train model
 # Train and evaluate K-Nearest Neighbors model
 knn_model <- knn(train = news_train_data, test = news_test_data, cl = news_train_labels, k = 5)
 knn_pred <- knn_model
 knn_cm <- confusionMatrix(knn_model, news_test_labels)
 knn_results <- knn_cm$byClass
-print(svm_cm)
+print(knn_cm)
 
 # Train and evaluate Naive Bayes model
 nb_model <- naiveBayes(news_train_data, news_train_labels)
@@ -81,12 +80,6 @@ print(svm_cm)
 
 #Print evaluation metrics
 list(KNN = knn_results, Naive_Bayes = nb_results, SVM = svm_results)
-
-roc_curve <- roc(true_labels, predictions)
-plot(roc_curve, main = "ROC Curve", col = "blue")
-
-print(svm_cm$table)
-
 
 #The result of classification
 knn_results1 <- knn_cm$table
@@ -139,4 +132,5 @@ evaluation_df <- data.frame(
   Recall = c(knn_recall_mean, nb_recall_mean, svm_recall_mean ), 
   F_value = c(knn_f1_mean, nb_f1_mean, svm_f1_mean )
 )
+#Export results table
 write_xlsx(evaluation_df, path = "/Users/joe/Downloads/evaluation_df.xlsx")
