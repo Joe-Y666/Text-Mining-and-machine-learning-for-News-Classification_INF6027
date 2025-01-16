@@ -1,5 +1,4 @@
-# Text-Mining-and-machine-learning-for-News-Classification_INF6027
-
+# Text Mining and machine learning for News Classification（INF6027）
 
 
 ## Author Introduction
@@ -27,9 +26,6 @@ Text preprocessing was carried out by using lower case, removing punctuation and
 ## Rcode and comment
 
 ### Exploratory analysis with text mining
-
-
-
 
 ```r
 #Before using this analysis, please make sure to install the following R packages:
@@ -83,6 +79,7 @@ set.seed(1234)
 wordcloud(words = wordcloud_data$word, freq = wordcloud_data$freq,
           min.freq = 2, scale = c(3, 0.5), colors = brewer.pal(8, "Set2"),
           random.order = FALSE, rot.per = 0.35, use.r.layout = FALSE)
+
 
 
 
